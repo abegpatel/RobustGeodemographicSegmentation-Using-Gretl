@@ -1,0 +1,55 @@
+Variance Inflation Factors
+Minimum possible value = 1.0
+Values > 10.0 may indicate a collinearity problem
+
+   CreditScore    1.001
+           Age    1.014
+ NumOfProducts    1.152
+IsActiveMember    1.010
+        Female    1.003
+       Germany    1.268
+        log_wa    1.417
+
+VIF(j) = 1/(1 - R(j)^2), where R(j) is the multiple correlation coefficient
+between variable j and the other independent variables
+
+Belsley-Kuh-Welsch collinearity diagnostics:
+
+  variance proportions
+
+    lambda      cond     const CreditSc~       Age NumOfPro~ IsActive~    Female   Germany
+     5.982     1.000     0.000     0.001     0.001     0.003     0.008     0.008     0.007
+     0.693     2.939     0.000     0.000     0.002     0.003     0.112     0.031     0.505
+     0.562     3.262     0.000     0.000     0.000     0.004     0.676     0.210     0.034
+     0.395     3.889     0.002     0.003     0.007     0.021     0.136     0.726     0.093
+     0.228     5.126     0.000     0.000     0.000     0.134     0.001     0.006     0.280
+     0.092     8.071     0.005     0.012     0.192     0.655     0.035     0.002     0.075
+     0.039    12.322     0.030     0.226     0.662     0.111     0.030     0.010     0.003
+     0.009    25.583     0.963     0.757     0.135     0.070     0.003     0.007     0.002
+
+    lambda      cond    log_wa
+     5.982     1.000     0.004
+     0.693     2.939     0.027
+     0.562     3.262     0.000
+     0.395     3.889     0.008
+     0.228     5.126     0.567
+     0.092     8.071     0.258
+     0.039    12.322     0.087
+     0.009    25.583     0.048
+
+  lambda = eigenvalues of inverse covariance matrix (smallest is 0.00913951)
+  cond   = condition index
+  note: variance proportions columns sum to 1.0
+
+According to BKW, cond >= 30 indicates "strong" near linear dependence,
+and cond between 10 and 30 "moderately strong".  Parameter estimates whose
+variance is mostly associated with problematic cond values may themselves
+be considered problematic.
+
+Count of condition indices >= 30: 0
+
+Count of condition indices >= 10: 2
+Variance proportions >= 0.5 associated with cond >= 10:
+
+     const CreditSc~       Age
+     0.993     0.984     0.798

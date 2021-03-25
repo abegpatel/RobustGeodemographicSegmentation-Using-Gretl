@@ -1,0 +1,8 @@
+1.visualize ds
+2.encode the ds
+3.fit the model(step by step backward elemination)p vale-low and r and adjusted r-squared is more
+   p<sv(0.05) and adjusted r-squaredmore(best model)
+4.transforamtion(x^2,sqrt(x),ln(x))
+5.check multico-linearlity(should be low)
+     Use transformation and fit into model and chech for lower co-linearity
+     use co-relation matrix

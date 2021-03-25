@@ -1,0 +1,58 @@
+Variance Inflation Factors
+Minimum possible value = 1.0
+Values > 10.0 may indicate a collinearity problem
+
+       CreditScore    1.001
+               Age    1.450
+     NumOfProducts    1.151
+    IsActiveMember    1.010
+            Female    1.003
+           Germany    1.271
+       Log_Balance    5.860
+WealthAccumulation    5.722
+
+VIF(j) = 1/(1 - R(j)^2), where R(j) is the multiple correlation coefficient
+between variable j and the other independent variables
+
+Belsley-Kuh-Welsch collinearity diagnostics:
+
+  variance proportions
+
+    lambda      cond     const CreditSc~       Age NumOfPro~ IsActive~    Female   Germany
+     6.696     1.000     0.000     0.000     0.001     0.002     0.006     0.006     0.005
+     0.785     2.920     0.000     0.000     0.002     0.006     0.110     0.041     0.272
+     0.563     3.450     0.000     0.000     0.000     0.004     0.666     0.210     0.041
+     0.410     4.042     0.001     0.001     0.002     0.003     0.055     0.504     0.379
+     0.352     4.364     0.001     0.002     0.006     0.063     0.091     0.220     0.240
+     0.111     7.768     0.002     0.006     0.104     0.588     0.043     0.000     0.010
+     0.051    11.407     0.022     0.110     0.067     0.272     0.009     0.010     0.040
+     0.024    16.872     0.001     0.221     0.573     0.000     0.014     0.001     0.012
+     0.009    28.016     0.973     0.659     0.246     0.061     0.006     0.007     0.000
+
+    lambda      cond Log_Bala~ WealthAc~
+     6.696     1.000     0.001     0.001
+     0.785     2.920     0.008     0.014
+     0.563     3.450     0.000     0.000
+     0.410     4.042     0.008     0.015
+     0.352     4.364     0.019     0.045
+     0.111     7.768     0.017     0.066
+     0.051    11.407     0.373     0.150
+     0.024    16.872     0.539     0.605
+     0.009    28.016     0.036     0.106
+
+  lambda = eigenvalues of inverse covariance matrix (smallest is 0.00853155)
+  cond   = condition index
+  note: variance proportions columns sum to 1.0
+
+According to BKW, cond >= 30 indicates "strong" near linear dependence,
+and cond between 10 and 30 "moderately strong".  Parameter estimates whose
+variance is mostly associated with problematic cond values may themselves
+be considered problematic.
+
+Count of condition indices >= 30: 0
+
+Count of condition indices >= 10: 3
+Variance proportions >= 0.5 associated with cond >= 10:
+
+     const CreditSc~       Age Log_Bala~ WealthAc~
+     0.995     0.990     0.885     0.948     0.860
